@@ -1,0 +1,7 @@
+/* linear block layout, remove left sidebar, right sidebar list becomes inline */
+#left { display: none; }
+#right ul { list-style-type; none; text-align: center; margin: 0; padding; 0; }
+#right ul li { display: inline; padding: 1em; margin: 0; }
+
+/* hide select for this style when selected */
+#bender-mobile { display: none; }

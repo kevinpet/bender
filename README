@@ -1,0 +1,8 @@
+Bender.js exists to simplify providing a mobile-friendly layout to users.
+
+- Entirely client side, suitable for use with a pure html site or pre-generated html from Jekyll or Movable Type.
+- Cookie persistence -- users can have different settings on different devices.
+- No redirects or url changes.
+- User-switchable so you don't have to make a guess whether someone on an iPad wants the mobile or full screen version.
+
+Usage: will document after I make some improvements to avoid hard coding in the js.

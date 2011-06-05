@@ -1,0 +1,6 @@
+/* This is where I would specify my colors, link effect, background images, background sprites, and so on */
+#header { background-color: pink; }
+#header ul { list-style-type; none; text-align: center; margin: 0; padding; 0; }
+#header ul li { display: inline; padding: 1em; margin: 0; }
+.sidebar { background-color: #aaa; }
+body { font-weight: bold; }

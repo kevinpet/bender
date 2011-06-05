@@ -1,0 +1,6 @@
+/* three column layout */
+#left { width: 23%; float: left; clear: both; margin: 1%; }
+#main { width: 48%; float: left; margin: 1%; }
+#right { width: 23%; float: left; margin: 1%;}
+/* hide select for this style sheet when selected */
+#bender-screen { display: none; }
