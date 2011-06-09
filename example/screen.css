@@ -3,4 +3,4 @@
 #main { width: 48%; float: left; margin: 1%; }
 #right { width: 23%; float: left; margin: 1%;}
 /* hide select for this style sheet when selected */
-#bender-screen { display: none; }
+#screen { display: none; }

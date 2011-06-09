@@ -5,4 +5,37 @@ Bender.js exists to simplify providing a mobile-friendly layout to users.
 - No redirects or url changes.
 - User-switchable so you don't have to make a guess whether someone on an iPad wants the mobile or full screen version.
 
-Usage: will document after I make some improvements to avoid hard coding in the js.
+Usage (intended after I get there):
+
+Create your stylesheets
+-----------------------
+Create a shared stylesheet for rules that aren't dependent, and the stylesheets you intend to choose between. You can name these anything you want. In my example:
+# /css/shared.css
+# /css/screen.css -- for normal users, the css "screen" media type
+# /css/mobile.css -- for mobile users, can be installed as "mobile" media type as well
+
+Install stylesheets
+-------------------
+<pre>
+&lt;link rel="stylesheet" type="text/css" href="/css/shared.css"/&gt;
+&lt;link rel="stylesheet" type="text/css" href="/css/screen.css" id="select-screen"/&gt;
+</pre>
+
+You can make this media-type-selective, and install mobile.css for the mobile media type. You want to allow the user to select the stylesheet configured for the screen media type, as this what computers and modern smartphones use.
+
+Configure and install with javascript
+-------------------------------------
+<pre>
+/* create a bender context */
+var bender = $.bender("bender-style")
+/* add your user-selectable style sheets */
+bender.add("select-screen", "/css/screen.css")
+/* passing the third parameter of "auto-mobile" will select it it matches known mobile user agents */
+bender.add("select-mobile", "/css/mobile.css", "auto-mobile")
+/* detect defaults immediate to avoid FOUC */
+bender.autodetect()
+/* bind the handlers on document load with jQuery */
+$(bender.install)
+</pre>
+
+Usage (actual right now): 

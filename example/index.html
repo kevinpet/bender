@@ -4,11 +4,21 @@
     <title>kdpeterson.net: {{ page.title }}</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
     <link rel="stylesheet" type="text/css" href="shared.css"/>
-    <link rel="stylesheet" type="text/css" href="screen.css" id="bender-style"/>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="screen.css" id="style"/>
+    <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript" src="../jquery.cookie.js"></script>
     <script type="text/javascript" src="../bender.js"></script>
     <script type="text/javascript">
+      /* create a bender context */
+      var style = bender("style")
+      /* add your user-selectable style sheets */
+      style.add("screen", "screen.css")
+      /* passing the third parameter of "auto-mobile" will select it it matches known mobile user agents */
+      style.add("mobile", "mobile.css", "auto-mobile")
+      /* TODO: detect defaults immediate to avoid FOUC */
+      /* style.autodetect() */
+      /* bind the handlers on document load with jQuery */
+      $(style.install)
     </script>
   </head>
   <body>
@@ -17,7 +27,7 @@
 	<li>Home</li>
 	<li>Blog</li>
 	<li>Whatever</li>
-	<li id="bender-select"><a id="bender-mobile" href="#">Mobile Site</a><a id="bender-screen" href="#">Full Site</a></li>
+	<li id="select"><a id="mobile" href="#">Mobile Site</a><a id="screen" href="#">Full Site</a></li>
     </div>
     <div id="left" class="sidebar">
       <ul>

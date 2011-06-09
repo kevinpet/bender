@@ -1,29 +1,34 @@
-function choose(style) {
-    $.cookie("bender", style, { path: '/', expires: 30 });
-    s(style);
-}
-function s(style) {
-    var ss = document.getElementById("bender-style");
-    switch(style) {
-    case 'mobile':
-        ss.href = "mobile.css";
-        break;
-    case 'screen':
-        ss.href = "screen.css";
-        break;
+bender = function(id) {
+    var styles = {};
+    var keys = [];
+    var bender = this;
+    $["bender" + id] = bender;
+    this.choose = function(style) {
+	$.cookie("bender-" + id, style, { path: '/', expires: 30 });
+	var ss = document.getElementById(id);
+	ss.href = styles[style];
     }
-}
-var selected = $.cookie("bender");
-if (selected) {
-    s(selected);
-}
-$(function() {
-    $("#bender-mobile").click(function(e) {
-        e.preventDefault();
-        choose("mobile");
-    });
-    $("#bender-screen").click(function(e) {
-        e.preventDefault();
-        choose("screen");
-    });
-});
+    this.add = function(selector, href) {
+	keys = keys.concat(selector);
+	styles[selector] = href;
+	return this;
+    }
+    this.install = function() {
+	keys.forEach(
+	    function(key) {
+		$("#" + key).click(function(e) {
+		    e.preventDefault();
+		    bender.choose(key);
+		})
+	    });
+    }
+    this.autodetect = function() {
+	var selected = $.cookie("bender-" + id);
+	if (selected) {
+	    var ss = document.getElementById(id);
+	    ss.href = styles[style];
+	}
+	return this;
+    }
+    return this;
+};
