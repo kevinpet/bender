@@ -1,0 +1,4 @@
+body { background-color: white; color: #888; }
+#header { background-color: #ccc; }
+.sidebar { background-color: #aaa; }
+#white:after { content: "*"; }

@@ -22,7 +22,8 @@ bender = function(id) {
 		})
 	    });
     }
-    this.autodetect = function() {
+    /* todo: fix cookieing */
+    this.cookie = function() {
 	var selected = $.cookie("bender-" + id);
 	if (selected) {
 	    var ss = document.getElementById(id);
@@ -30,5 +31,7 @@ bender = function(id) {
 	}
 	return this;
     }
+    this.autodetect = this.cookie;
+    this.autodetectWithCookie = this.cookie;
     return this;
 };

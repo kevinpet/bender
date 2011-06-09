@@ -10,15 +10,20 @@
     <script type="text/javascript" src="../bender.js"></script>
     <script type="text/javascript">
       /* create a bender context */
-      var style = bender("style")
+      var style = bender("style");
       /* add your user-selectable style sheets */
-      style.add("screen", "screen.css")
+      style.add("screen", "screen.css");
       /* passing the third parameter of "auto-mobile" will select it it matches known mobile user agents */
-      style.add("mobile", "mobile.css", "auto-mobile")
+      style.add("mobile", "mobile.css", "auto-mobile");
       /* TODO: detect defaults immediate to avoid FOUC */
-      /* style.autodetect() */
+      /* style.autodetectWithCookie() */
       /* bind the handlers on document load with jQuery */
       $(style.install)
+    </script>
+    <!-- let's do colors as well, this time with method chaining -->
+    <link rel="stylesheet" type="text/css" href="white.css" id="colors"/>
+    <script type="text/javascript">
+      $(bender("colors").add("white", "white.css").add("black", "black.css").cookie().install)
     </script>
   </head>
   <body>
@@ -63,6 +68,11 @@
       congue. Vestibulum sed enim mauris, vitae tempus lacus.</p>
     </div>
     <div id="right" class="sidebar">
+      <h2>Color</h2>
+      <ul>
+	<li><a href="#" id="white">White</a></li>
+	<li><a href="#" id="black">Black</a></li>
+      </ul>
       <ul>
 	<li>Quisque</li>
 	<li>Ut ultrices</li>
