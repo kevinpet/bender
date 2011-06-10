@@ -15,15 +15,15 @@
       style.add("screen", "screen.css");
       /* passing the third parameter of "auto-mobile" will select it it matches known mobile user agents */
       style.add("mobile", "mobile.css", "auto-mobile");
-      /* TODO: detect defaults immediate to avoid FOUC */
-      /* style.autodetectWithCookie() */
+      /* check cookies and autodetect, returning the onLoad callback */
+      var bind_handlers = style.install();
       /* bind the handlers on document load with jQuery */
-      $(style.install)
+      $(bind_handlers)
     </script>
     <!-- let's do colors as well, this time with method chaining -->
     <link rel="stylesheet" type="text/css" href="white.css" id="colors"/>
     <script type="text/javascript">
-      $(bender("colors").add("white", "white.css").add("black", "black.css").cookie().install)
+      $(bender("colors").add("white", "white.css").add("black", "black.css").install())
     </script>
   </head>
   <body>

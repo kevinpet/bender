@@ -1,19 +1,25 @@
+var benders = []
 bender = function(id) {
     var styles = {};
     var keys = [];
     var bender = this;
-    $["bender" + id] = bender;
-    this.choose = function(style) {
-	$.cookie("bender-" + id, style, { path: '/', expires: 30 });
-	var ss = document.getElementById(id);
-	ss.href = styles[style];
+    var mobile;
+    benders = benders.concat(this);
+    set_style = function(style) {
+	document.getElementById(id).href = styles[style];
     }
-    this.add = function(selector, href) {
-	keys = keys.concat(selector);
-	styles[selector] = href;
+    this.choose = function(style) {
+	set_style(style);
+    }
+    this.add = function(style, href, auto_mobile) {
+	keys = keys.concat(style);
+	styles[style] = href;
+	if (auto_mobile == "auto-mobile") {
+	    mobile = style;
+	}
 	return this;
     }
-    this.install = function() {
+    var install_handlers = function() {
 	keys.forEach(
 	    function(key) {
 		$("#" + key).click(function(e) {
@@ -22,16 +28,20 @@ bender = function(id) {
 		})
 	    });
     }
-    /* todo: fix cookieing */
-    this.cookie = function() {
+    get_cookie = function() {
+	return $.cookie("bender-" + id);
+    }
+    set_cookie = function(style) {
+	$.cookie("bender-" + id, style, { path: '/', expires: 30 });
+    }
+    this.install = function() {
 	var selected = $.cookie("bender-" + id);
 	if (selected) {
-	    var ss = document.getElementById(id);
-	    ss.href = styles[style];
+	    set_style(selected);
+	} else if (mobile && Math.random() > 0.5) {
+	    set_style(mobile);
 	}
-	return this;
+	return install_handlers;
     }
-    this.autodetect = this.cookie;
-    this.autodetectWithCookie = this.cookie;
     return this;
 };
