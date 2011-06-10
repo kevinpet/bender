@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script>
+      function G(num) {
+        var g = this;
+        this.num = num;
+        this.callback = function() {
+          console.log("Call " + this.num);
+        };
+        this.register = function(id) {
+          console.log("Register " + id + " to " + this.num);
+          $(id).click(function(e) {
+            e.preventDefault();
+            g.callback();
+          });
+        };
+      };
+      function g(num) {
+        return new G(num);
+      };
+      $(function() {
+        f1 = g(1);
+        f2 = g(2);
+        f1.register("#a");
+        f2.register("#b");
+        f1.register("#c");
+      });
+    </script>
+  </head>
+  <body>
+    <ul>
+      <li><a href="#a" id="a">click a</a></li>
+      <li><a href="#b" id="b">click b</a></li>
+      <li><a href="#c" id="c">click c</a></li>
+</html>
+            

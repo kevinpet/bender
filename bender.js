@@ -1,10 +1,7 @@
-var benders = []
 bender = function(id) {
     var styles = {};
     var keys = [];
-    var bender = this;
     var mobile;
-    benders = benders.concat(this);
     set_style = function(style) {
 	document.getElementById(id).href = styles[style];
     }
@@ -24,7 +21,7 @@ bender = function(id) {
 	    function(key) {
 		$("#" + key).click(function(e) {
 		    e.preventDefault();
-		    bender.choose(key);
+		    benders[id].choose(key);
 		})
 	    });
     }
@@ -38,8 +35,10 @@ bender = function(id) {
 	var selected = $.cookie("bender-" + id);
 	if (selected) {
 	    set_style(selected);
-	} else if (mobile && Math.random() > 0.5) {
-	    set_style(mobile);
+	} else if (mobile) {
+	    if (navigator.userAgent.toLowerCase().match(/mobile|android/)) {
+		set_style(mobile);
+	    }
 	}
 	return install_handlers;
     }
