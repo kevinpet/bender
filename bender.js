@@ -1,55 +1,39 @@
 function Bender(id) {
-    var self = this;
-    var styles = {};
-    var keys = [];
-    var mobile;
-    this.set_style = function(style) {
-	console.log("Setting " + self.name() + "(" + id + ") to " + style);
+    var self = this, styles = {}, keys = [], mobile;
+    this.set = function(style) {
 	document.getElementById(id).href = styles[style];
     }
-    this.name = function() {
-	return id;
-    }
     this.choose = function(style) {
-	self.set_style(style);
+	$.cookie("bender-" + id, style, { path: '/', expires: 30});
+	self.set(style);
     }
-    this.add = function(style, href, auto_mobile) {
-	console.log("adding " + style + " to " + this.name());
+    this.add = function(style, href, auto) {
 	keys = keys.concat(style);
 	styles[style] = href;
-	if (auto_mobile == "auto-mobile") {
+	if (auto == "auto-mobile") {
 	    mobile = style;
 	}
 	return self;
     }
-    this.install_handlers = function() {
+    this.clicks = function() {
 	keys.forEach(
 	    function(key) {
-		console.log("hooking up " + self.name() + " to " + key);
 		$("#" + key).click(function(e) {
-		    console.log(self.name());
 		    e.preventDefault();
 		    self.choose(key);
 		});
-		$("#" + key).data("bender", self.name());
 	    });
-    }
-    this.get_cookie = function() {
-	return $.cookie("bender-" + id);
-    }
-    this.set_cookie = function(style) {
-	$.cookie("bender-" + id, style, { path: '/', expires: 30 });
     }
     this.install = function() {
 	var selected = $.cookie("bender-" + id);
 	if (selected) {
-	    self.set_style(selected);
+	    self.set(selected);
 	} else if (mobile) {
 	    if (navigator.userAgent.toLowerCase().match(/mobile|android/)) {
-		self.set_style(mobile);
+		self.set(mobile);
 	    }
 	}
-	return self.install_handlers;
+	return self.clicks;
     }
 };
 function bender(id) {
