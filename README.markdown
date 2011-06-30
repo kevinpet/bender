@@ -2,16 +2,20 @@ Bender.js exists to simplify providing a mobile-friendly layout to users.
 
 ##Features
 
-- Entirely client side, suitable for use with a pure html site or pre-generated html from Jekyll or Movable Type.
+- Entirely client side, suitable for use with a pure html site or
+  pre-generated html from Jekyll or Movable Type.
 - Cookie persistence -- users can have different settings on different devices.
 - No redirects or url changes.
-- User-switchable so you don't have to make a guess whether someone on an iPad wants the mobile or full screen version.
+- User-switchable so you don't have to make a guess whether someone on
+  an iPad wants the mobile or full screen version.
 
 ##Usage
 
 ###Create your stylesheets
 
-Create a shared stylesheet for rules that aren't dependent, and the stylesheets you intend to choose between. You can name these anything you want. For purposes of discussion:
+Create a shared stylesheet for rules that aren't dependent, and the
+stylesheets you intend to choose between. You can name these anything
+you want. For purposes of discussion:
 
 * `/css/shared.css`
 * `/css/screen.css` -- for normal users, the css "screen" media type
@@ -22,7 +26,10 @@ Create a shared stylesheet for rules that aren't dependent, and the stylesheets 
     <link rel="stylesheet" type="text/css" href="/css/shared.css"/>
     <link rel="stylesheet" type="text/css" href="/css/screen.css" id="select-screen"/>
 
-You can make this media-type-selective, and install mobile.css for the mobile media type. You want to allow the user to select the stylesheet configured for the screen media type, as this what computers and modern smartphones use.
+You can make this media-type-selective, and install mobile.css for the
+mobile media type. You want to allow the user to select the stylesheet
+configured for the screen media type, as this what computers and
+modern smartphones use.
 
 ###Install scripts
 
@@ -43,7 +50,7 @@ You can make this media-type-selective, and install mobile.css for the mobile me
 ## License
 
 MIT license. I will likely come back some time in the future to
-clarify that you shouldn't have to include a copyright notice in
+clarify that you shouldn't have to include a full copyright notice in
 minified versions (indeed, I've set it up to build this way).
 
 Copyright (c) 2011 Kevin Dempsey Peterson 
