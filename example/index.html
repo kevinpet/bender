@@ -19,12 +19,12 @@
       /* check cookies and autodetect, returning the onLoad callback */
       var bind_handlers = style.install();
       /* bind the handlers on document load with jQuery */
-      $(bind_handlers)
+      $(bind_handlers);
     </script>
     <!-- let's do colors as well, this time with method chaining -->
     <link rel="stylesheet" type="text/css" href="white.css" id="colors"/>
     <script type="text/javascript">
-      $(bender("colors").add("white", "white.css").add("black", "black.css").install())
+      $(bender("colors").add("white", "white.css").add("black", "black.css").install());
     </script>
   </head>
   <body>
