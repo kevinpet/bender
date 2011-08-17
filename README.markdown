@@ -1,4 +1,4 @@
-Bender.js exists to simplify providing a mobile-friendly layout to users.
+Bender.js exists to simplify providing a mobile-friendly layout to users. [See it in action](http://kdpeterson.net/code/bender/) or read the [motivation](http://kdpeterson.net/blog/2011/08/mobile-stylesheets-with-bender-js.html).
 
 ##Features
 
@@ -46,6 +46,10 @@ modern smartphones use.
     bender.add("select-mobile", "/css/mobile.css", "auto-mobile")
     /* check cookies and autodetect mobile, and then bind the handlers on document load with jQuery */
     $(bender.install())
+
+## More info
+* Take a look at the example code and [play with it at kdpeterson.net](http://kdpeterson.net/code/bender/).
+* If you're interested in the reasoning behind why this is a good idea, see my blog post [client-side stylesheets for mobile](http://kdpeterson.net/blog/2011/08/client-side-stylesheets-with-bender-js.html).
 
 ## License
 
