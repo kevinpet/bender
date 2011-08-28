@@ -49,7 +49,7 @@ modern smartphones use.
 
 ## More info
 * Take a look at the example code and [play with it at kdpeterson.net](http://kdpeterson.net/code/bender/).
-* If you're interested in the reasoning behind why this is a good idea, see my blog post [client-side stylesheets for mobile](http://kdpeterson.net/blog/2011/08/client-side-stylesheets-with-bender-js.html).
+* If you're interested in the reasoning behind why this is a good idea, see my blog post [client-side stylesheets for mobile](http://kdpeterson.net/blog/2011/08/mobile-stylesheets-with-bender-js.html).
 
 ## License
 
